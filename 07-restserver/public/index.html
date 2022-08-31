@@ -51,7 +51,12 @@
 
     const body = { id_token : response.credential };
 
-    fetch('http://localhost:8080/api/auth/google', {
+    let url = (window.location.hostname.includes('localhost') ) ?
+        ' http://localhost:8080/api/auth/google' : 
+        'https://webserverjuanmarin.herokuapp.com/';
+
+        
+    fetch(url, {
         method : 'POST',
         headers : {
 
